@@ -3,7 +3,7 @@ require "rake/clean"
 task :default => [:evince]
 
 #SRC = File.basename(Dir.getwd).ext("tex")
-SRC = "srug.tex"
+SRC = "srug1.tex"
 RUBY_SRC = FileList["*.rb"]
 
 CLEAN.include(%w(*.toc *.aux *.log *.lof *.bib *.bbl *.blg *.out *.snm *.vrb *.nav),
