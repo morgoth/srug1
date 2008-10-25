@@ -1,0 +1,286 @@
+%%
+%% presentation.tex
+%%
+%% Made by Jakub Kuźma
+%% Login   <kuba@jah.pl>
+%%
+%% Started on  Fri Oct 24 19:44:04 2008 Jakub Kuźma
+%% Last update Fri Oct 24 19:44:04 2008 Jakub Kuźma
+%%
+
+\documentclass[12t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[polish]{babel}
+\usepackage{graphicx}
+\usepackage{color}
+\input{pygments}
+
+\usetheme{Pittsburgh}
+\author{Silesian Ruby User's Group}
+\title{Ruby on Rails}
+\setbeamercovered{transparent}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Wstęp}
+\begin{frame}
+  \frametitle{Dlaczego web development?}
+  \begin{itemize}
+  \item przenośność
+  \item niezależność od systemów operacyjnych i przeglądarek
+  \item łatwe zarządzanie i utrzymanie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dlaczego Ruby on Rails?}
+  \begin{itemize}
+  \item przyjemność z programowania
+  \item open source
+  \item czytelność kodu
+  \item propagowanie dobrych praktyk programistycznych
+  \item szybkość programowania
+  \item łatwość reagowania na zmiany
+  \item niezależność od systemu operacyjnego
+  \item niezależność od środowiska pracy (NetBeans, RadRails, Emacs,
+    Vim, JEdit)
+  \end{itemize}
+\end{frame}
+
+\section{Ruby}
+\begin{frame}
+  \frametitle{Ruby}
+  \begin{itemize}
+  \item 1995 rok, Yukihiro Matsumoto aka Matz
+  \item inspirowany przez CLU, Eiffel, Lisp, Perl, Python, Smalltalk
+  \item interpretowany
+  \item bardzo wysokiego poziomu (VHLL)
+  \item domknięcia (lambda/Proc)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ruby, c.d.}
+  \begin{itemize}
+  \item w pełni obiektowy
+  \item prosta składnia, samokomentujący się kod
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Duck typing}
+  \begin{itemize}
+  \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
+  \end{itemize}
+  \begin{quote}
+    If it walks like a duck and quacks like a duck, I would call it a
+    duck.
+
+    \hfill James Whitcomb Riley
+  \end{quote}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item - bloki i lambdy (closures) - wygodne przekazywanie funkcji
+    jako parametrów + przykład
+  \item domknięcia to dodatkowy powod, dla ktorego Rubisci nie boją
+    się Javascriptu, patrz jQuery, Prototype, etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item dziedziczenie jednobazowe
+  \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
+    włączyć gotową implementację zbioru metod do danej klasy (mixin)
+  \item konwencja zakłada odejście od klasycznie wykładanego na
+    uczelniach modelu OO, w którym lepszą ocenę dostaje osoba
+    umiejąca wymyśleć większe drzewko dziedziczenia
+  \item w Rubym dziedziczenia używa się znacznie oszczędniej i
+    rzadziej niż np. w Javie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item otwarte klasy - monkeypatching + przykład
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \input{metaprogramming}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item spójność
+  \item nawiasy służą jedynie do zmiany priorytetu operatorów
+  \item styl formatowania kodu nie jest narzucony z góry
+  \item opcjonalny return (ostatnie wyrażenie jest wartością zwracaną
+    przez metodę)
+  \item bogata biblioteka standardowa + przykłady
+  \item garbage collector
+  \item przeciążanie operatorów
+  \item liczby całkowite o dowolnych rozmiarach
+  \item wyrażenia regularne wbudowane w składnię
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item „pseudo-code that runs” - skupianie się na rozwiązaniu
+    problemu, nie na języku, który jest zaprojektowany dla ludzi, nie
+    dla maszyn
+  \item Zasada najmniejszego zaskoczenia - Ruby jest intuicyjny
+  \item Radość z programowania
+  \item Wolność wyboru (jak w Perlu, przeciwnie niż w Pythonie) -
+    TIMTOWTDI, ale konwencje pozwalają na uniknięcie typowego
+    „perlarstwa”
+  \end{itemize}
+\end{frame}
+
+\section{Ruby on Rails}
+\begin{frame}
+  \frametitle{Ruby on Rails}
+  \begin{itemize}
+  \item DHH, 2004/2005
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Full Stack Framework w MVC}
+  architektura
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActiveRecord}
+  \begin{itemize}
+  \item jeden z ORMów możliwych do użycia (np. DataMapper)
+  \item implementacja wzorca
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{quote}
+    I have never seen an Active Record implementation as complete or as useful as Rails
+
+    \hfill Martin Fowler
+  \end{quote}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item brak XML
+  \item migracje
+  \item proste tworzenie asocjacji
+  \item walidatory
+  \item callbacki
+  \item transakcje
+  \item STI
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  przykłady do AR
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActionPack}
+  On rails from request to response
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActiveResource}
+  mapowanie RESTowych zasobów jako modele
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActionMailer}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActiveSupport}
+\end{frame}
+
+\begin{frame}
+  serwery HTTP: Webrick, Mongrel, Thin, Ebb, Passenger(Apache)
+\end{frame}
+
+\begin{frame}
+  Przykłady wdrożeń
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rails way}
+  \begin{itemize}
+  \item Jeden sposób na zaprojektowanie aplikacji webowej
+  \item Convention over Configuration
+  \item Don't Repeat Yourself
+  \item Fat model, thin controller w MVC
+  \end{itemize}
+\end{frame}
+
+\section{Ruby - dodatki}
+\begin{frame}
+  \frametitle{RubyGems}
+  system paczek: gem install rails
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rake}
+  \begin{itemize}
+  \item Rake - Ruby Make
+  \item przykłady
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{RSpec}
+  \begin{itemize}
+  \item framework BDD
+  \item przykłady
+  \end{itemize}
+\end{frame}
+
+\section{Ruby - rozwój}
+\begin{frame}
+  \frametitle{Ruby - rozwój}
+  \begin{itemize}
+  \item implementacje: MRI, Ruby Enterprise, JRuby, IronRuby
+  \item maszyny wirtualne: MagLev, Rubinius, YARV
+  \item Github
+  \end{itemize}
+\end{frame}
+
+\section{Ruby - podsumowanie}
+\begin{frame}
+  \frametitle{Jak zacząć}
+  \begin{itemize}
+  \item instant-rails
+  \item github
+  \item opensourcerails.com
+  \item heroku.com
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Po 3 latach z Ruby - co się zmienia}
+  \begin{itemize}
+  \item Ruby jako pierwszy pozwolił mi czerpać radość z
+    programowania. Wcześniej były Java, w C/C++ i inne
+  \item Pragmatyzm. Prosty, czytelny kod. Mało kodu. Brak
+    komentarzy. Więcej czasu na życie.
+  \item Nie wrócę do już do języków ze statycznym typowaniem. Czytałem
+    Bruca Eckela kiedy mówił, że statyczne typowanie to przyszłość. Po
+    latach zmienił zdanie. To samo dotyczy deklarowania wyrzucanych
+    wyjątków (patrz Java).
+  \item Większy dystans i szersze spojrzenie na rzemiosło programowania.
+  \item 1 nowy język programowania co roku (ObjC, Erlang, Lisp, ...)
+  \end{itemize}
+\end{frame}
+
+\end{document}
