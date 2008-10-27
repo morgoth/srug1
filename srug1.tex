@@ -59,7 +59,6 @@
   \item inspirowany przez CLU, Eiffel, Lisp, Perl, Python, Smalltalk
   \item interpretowany
   \item bardzo wysokiego poziomu (VHLL)
-  \item domknięcia (lambda/Proc)
   \end{itemize}
 \end{frame}
 
@@ -72,7 +71,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Duck typing}
+  \frametitle{Duck typin}g
   \begin{itemize}
   \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
   \end{itemize}
@@ -88,8 +87,6 @@
   \begin{itemize}
   \item bloki i lambdy (closures) - wygodne przekazywanie funkcji
     jako parametrów + przykład
-  \item domknięcia to dodatkowy powod, dla ktorego Rubisci nie boją
-    się Javascriptu, patrz jQuery, Prototype, etc.
   \end{itemize}
 \end{frame}
 
@@ -98,14 +95,12 @@
   \item dziedziczenie jednobazowe
   \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
     włączyć gotową implementację zbioru metod do danej klasy (mixin)
-  \item konwencja zakłada odejście od klasycznie wykładanego na
-    uczelniach modelu OO, w którym lepszą ocenę dostaje osoba
-    umiejąca wymyśleć większe drzewko dziedziczenia
-  \item w Rubym dziedziczenia używa się znacznie oszczędniej i
-    rzadziej niż np. w Javie
+  \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
+    np. w Javie
   \end{itemize}
 \end{frame}
 
+\subsection{Otwarte klasy}
 \begin{frame}
   \frametitle{Otwarte klasy - przykład}
   \input{openclasses1}
@@ -115,12 +110,28 @@
     bibliotece standardowej w Ruby 1.8.7}
 \end{frame}
 
+\subsection{Monkey patching}
 \begin{frame}
   \frametitle{Monkey patching - przykład}
   \input{monkeypatching1}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Monkey patching - przykład, c.d.}
+  \input{monkeypatching2}
+\end{frame}
+
 \subsection{Metaprogramowanie}
+
+\begin{frame}
+  \frametitle{Metaprogramowanie}
+  \begin{itemize}
+  \item metaprogramowanie w Rubim jest \textbf{proste}
+  \item dysponujemy programowalnym językiem programowania
+  \item główne narzędzie służące do budowy tzw. DSL
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Metaprogramowanie - przykład}
   \input{metaprogramming1}
@@ -140,6 +151,19 @@
     setterów w np. Javie}
   \note{nie musimy pisać funkcji - attr_accessor, attr_reader,
     attr_writer są w bibliotece standardowej. Zostały napisane w C}
+\end{frame}
+
+\subsection{Użycie method\_missing}
+\begin{frame}[fragile]
+  \frametitle{Użycie method\_missing}
+  \input{methodmissing1}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Użycie method\_missing, c.d.}
+  \input{methodmissing2}
+  \note{Dla zaoszczędzenia czasu nie będziemy prezentować jak osiągnąć
+    ten efekt w tradycyjny sposób}
 \end{frame}
 
 \begin{frame}
