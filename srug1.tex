@@ -71,12 +71,15 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Duck typin}g
+  \frametitle{Duck typing}
   \begin{itemize}
   \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
   \end{itemize}
+\end{frame}
+
+\begin{frame}
   \begin{quote}
-    „If it walks like a duck and quacks like a duck, I would call it a
+    “If it walks like a duck and quacks like a duck, I would call it a
     duck.”
 
     \hfill James Whitcomb Riley
@@ -85,18 +88,34 @@
 
 \begin{frame}
   \begin{itemize}
-  \item bloki i lambdy (closures) - wygodne przekazywanie funkcji
+  \item bloki i lambdy (domknięcia) - wygodne przekazywanie funkcji
     jako parametrów + przykład
   \end{itemize}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Cechy}
   \begin{itemize}
   \item dziedziczenie jednobazowe
-  \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
-    włączyć gotową implementację zbioru metod do danej klasy (mixin)
+  \item moduły zapewniają rodzaj dziedziczenia wielobazowego
+    pozwalający włączyć gotową implementację zbioru metod do danej
+    klasy (\emph{mixin})
+    \note[item]{Moduły pełnią też rolę przestrzeni nazw}
   \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
     np. w Javie
+  \item styl formatowania kodu nie jest narzucony z góry
+    \note[item]{Wcięcia nie mają żadnego znaczenia dla kompilatora}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cechy, c.d.}
+  \begin{itemize}
+  \item bogata biblioteka standardowa
+  \item garbage collector
+  \item przeciążanie operatorów
+  \item liczby całkowite o dowolnych rozmiarach
+  \item wyrażenia regularne wbudowane w składnię
   \end{itemize}
 \end{frame}
 
@@ -167,31 +186,17 @@
 \end{frame}
 
 \begin{frame}
-  \begin{itemize}
-  \item spójność
-  \item nawiasy służą jedynie do zmiany priorytetu operatorów
-  \item styl formatowania kodu nie jest narzucony z góry
-  \item opcjonalny return (ostatnie wyrażenie jest wartością zwracaną
-    przez metodę)
-  \item bogata biblioteka standardowa + przykłady
-  \item garbage collector
-  \item przeciążanie operatorów
-  \item liczby całkowite o dowolnych rozmiarach
-  \item wyrażenia regularne wbudowane w składnię
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
+  \frametitle{Podsumowanie}
   \begin{itemize}
   \item „pseudo-code that runs” - skupianie się na rozwiązaniu
-    problemu, nie na języku, który jest zaprojektowany dla ludzi, nie
-    dla maszyn
-  \item Zasada najmniejszego zaskoczenia - Ruby jest intuicyjny
-  \item Radość z programowania
-  \item Wolność wyboru (jak w Perlu, przeciwnie niż w Pythonie) -
-    TIMTOWTDI, ale konwencje pozwalają na uniknięcie typowego
-    „perlarstwa”
+    problemu, nie na języku
+  \item język zaprojektowany \textbf{dla ludzi}
+  \item radość z programowania
+  \item TIMTOWTDI - wolność wyboru (jak w Perlu, przeciwnie niż w
+    Pythonie), konwencje pozwalają na uniknięcie typowego „perlarstwa”
+  \item zasada najmniejszego zaskoczenia - Ruby jest intuicyjny
   \end{itemize}
+  \note{Stworzony by cieszyć}
 \end{frame}
 
 \section{Ruby on Rails}
