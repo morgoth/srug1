@@ -67,6 +67,7 @@
   \begin{itemize}
   \item w pełni obiektowy
   \item prosta składnia, samokomentujący się kod
+	\input{selfcomment}
   \end{itemize}
 \end{frame}
 
@@ -199,11 +200,39 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{REST (Representional State Transfer)}
+  	\begin{itemize}
+			\item REST jest alternatywą dla SOAP
+			\item REST wykorzstuje metody protokołu HTTP:\\
+				GET, POST, PUT, DELETE
+			\item Implementacja REST w Rails:\\
+				CRUD (Create, Read, Update, Delete)
+			\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{CRUD}
+		\begin{tabular}{l|l|l}
+			Metoda & URL & Akcja \\
+			\hline
+			POST & /people & create \\
+			\hline
+			GET & /people/1 & show \\
+			\hline
+			PUT & /people/1 & update \\
+			\hline
+			DELETE & /people/1 & destroy \\
+		\end{tabular}
+\end{frame}
+
+\begin{frame}
   \frametitle{ActionMailer}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveSupport}
+	Przykłady:
+	\input{activesupport}
 \end{frame}
 
 \begin{frame}

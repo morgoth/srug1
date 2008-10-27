@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[Module]
+  @PYay[def] @PYaK[my_attr_accessor](@PYbe[*]symbols)
+    symbols@PYbe[.]each @PYay[do] @PYbe[|]symbol@PYbe[|]
+      @PYaX[module_eval] @PYaW["]@PYaW[def ]@PYbf[#{]symbol@PYbf[}]@PYaW[;]@PYaW["]\
+                    @PYaW["]@PYaW[@at[]]@PYbf[#{]symbol@PYbf[}]@PYaW[;]@PYaW["]\
+                  @PYaW["]@PYaW[end]@PYaW["]
+      @PYaX[module_eval] @PYaW["]@PYaW[def ]@PYbf[#{]symbol@PYbf[}]@PYaW[=(value);]@PYaW["]\
+                    @PYaW["]@PYaW[@at[]]@PYbf[#{]symbol@PYbf[}]@PYaW[ = value;]@PYaW["]\
+                  @PYaW["]@PYaW[end]@PYaW["]
+    @PYay[end]
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}
