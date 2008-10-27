@@ -17,9 +17,10 @@
 \input{pygments}
 
 \usetheme{Pittsburgh}
-\author{Silesian Ruby User's Group}
+\author{Silesian Ruby Users' Group}
 \title{Ruby on Rails}
 \setbeamercovered{transparent}
+%\setbeameroption{show notes}
 
 \begin{document}
 
@@ -76,8 +77,8 @@
   \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
   \end{itemize}
   \begin{quote}
-    If it walks like a duck and quacks like a duck, I would call it a
-    duck.
+    „If it walks like a duck and quacks like a duck, I would call it a
+    duck.”
 
     \hfill James Whitcomb Riley
   \end{quote}
@@ -85,7 +86,7 @@
 
 \begin{frame}
   \begin{itemize}
-  \item - bloki i lambdy (closures) - wygodne przekazywanie funkcji
+  \item bloki i lambdy (closures) - wygodne przekazywanie funkcji
     jako parametrów + przykład
   \item domknięcia to dodatkowy powod, dla ktorego Rubisci nie boją
     się Javascriptu, patrz jQuery, Prototype, etc.
@@ -106,13 +107,39 @@
 \end{frame}
 
 \begin{frame}
-  \begin{itemize}
-  \item otwarte klasy - monkeypatching + przykład
-  \end{itemize}
+  \frametitle{Otwarte klasy - przykład}
+  \input{openclasses1}
+  \note{Uzupełniamy klasę z biblioteki standardowej - używamy metody
+    shuffle tak jakby była tam od zawsze.}
+  \note{Ze względu na częste użycie metoda shuffle znalazła się w
+    bibliotece standardowej w Ruby 1.8.7}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Monkey patching - przykład}
+  \input{monkeypatching1}
+\end{frame}
+
+\subsection{Metaprogramowanie}
+\begin{frame}[fragile]
+  \frametitle{Metaprogramowanie - przykład}
+  \input{metaprogramming1}
 \end{frame}
 
 \begin{frame}[fragile]
-  \input{metaprogramming}
+  \frametitle{Metaprogramowanie - przykład, c.d.}
+  \input{metaprogramming2}
+  \note{To nie jest specjalna składnia - to zwykłe wywołanie metody
+    zadeklarowanej w klasie Module}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Metaprogramowanie - przykład, c.d.}
+  \input{metaprogramming3}
+  \note{Wiele osób w dalszym ciągu traci czas na pisanie getterów i
+    setterów w np. Javie}
+  \note{nie musimy pisać funkcji - attr_accessor, attr_reader,
+    attr_writer są w bibliotece standardowej. Zostały napisane w C}
 \end{frame}
 
 \begin{frame}

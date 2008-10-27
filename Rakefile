@@ -23,7 +23,7 @@ rule ".pdf" => ".tex" do |t|
   pdflatex(t.source)
 end
 
-file SRC.ext("pdf") => [SRC, RUBY_SRC.ext("tex")]
+file SRC.ext("pdf") => [SRC] + RUBY_SRC.ext("tex")
 
 desc "Compile PDF"
 task :pdf => SRC.ext("pdf")
