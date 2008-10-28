@@ -1,14 +1,14 @@
 class Array
   alias_method :old_index, :index
 
-  def index(obj = nil)
-    if obj.nil?
-      self.each_with_index do |e, i|
-        return i if yield e
+  def index(object = nil)
+    if object.nil?
+      self.each_with_index do |element, index|
+        return index if yield element
       end
       nil
     else
-      old_index(obj)
+      old_index(object)
     end
   end
 end
