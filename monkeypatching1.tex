@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[Array]
+  alias_method @PYat[:old_index], @PYat[:index]
+
+  @PYay[def] @PYaK[index](object @PYbe[=] @PYaj[nil])
+    @PYay[if] object@PYbe[.]nil?
+      @PYaX[self]@PYbe[.]each_with_index @PYay[do] @PYbe[|]element, index@PYbe[|]
+        @PYay[return] index @PYay[if] @PYay[yield] element
+      @PYay[end]
+      @PYaj[nil]
+    @PYay[else]
+      old_index(object)
+    @PYay[end]
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}
