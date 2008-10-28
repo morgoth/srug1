@@ -196,7 +196,11 @@
 
 \begin{frame}
   \frametitle{ActiveResource}
-  mapowanie RESTowych zasobów jako modele
+  	\begin{itemize}
+			\item Komunikacja ze zdalnymi serwisami
+			\item ActiveRecord dla REST
+			\item Wysyłanie/otrzymywanie danych w xml
+		\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -212,17 +216,22 @@
 
 \begin{frame}
   \frametitle{CRUD}
-		\begin{tabular}{l|l|l}
-			Metoda & URL & Akcja \\
-			\hline
-			POST & /people & create \\
-			\hline
-			GET & /people/1 & show \\
-			\hline
-			PUT & /people/1 & update \\
-			\hline
-			DELETE & /people/1 & destroy \\
-		\end{tabular}
+	\begin{itemize}
+		\item	Struktura\\
+			\begin{tabular}{l|l|l|l}
+				Metoda & URL & Akcja & SQL \\
+				\hline
+				POST & /people & create & insert \\
+				\hline
+				GET & /people/1 & show & select\\
+				\hline
+				PUT & /people/1 & update & update\\
+				\hline
+				DELETE & /people/1 & destroy & delete\\
+			\end{tabular}
+		\item Różna reprezentacja tych samych zasobów (html, xml, json)\\
+			/people.xml, /people.json, etc.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
