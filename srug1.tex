@@ -67,6 +67,7 @@
   \begin{itemize}
   \item w pełni obiektowy
   \item prosta składnia, samokomentujący się kod
+	\input{selfcomment}
   \end{itemize}
 \end{frame}
 
@@ -426,7 +427,42 @@ development:
 
 \begin{frame}
   \frametitle{ActiveResource}
-  mapowanie RESTowych zasobów jako modele
+  	\begin{itemize}
+			\item Komunikacja ze zdalnymi serwisami
+			\item ActiveRecord dla REST
+			\item Wysyłanie/otrzymywanie danych w xml
+		\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{REST (Representional State Transfer)}
+  	\begin{itemize}
+			\item REST jest alternatywą dla SOAP
+			\item REST wykorzstuje metody protokołu HTTP:\\
+				GET, POST, PUT, DELETE
+			\item Implementacja REST w Rails:\\
+				CRUD (Create, Read, Update, Delete)
+			\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{CRUD}
+	\begin{itemize}
+		\item	Struktura\\
+			\begin{tabular}{l|l|l|l}
+				Metoda & URL & Akcja & SQL \\
+				\hline
+				POST & /people & create & insert \\
+				\hline
+				GET & /people/1 & show & select\\
+				\hline
+				PUT & /people/1 & update & update\\
+				\hline
+				DELETE & /people/1 & destroy & delete\\
+			\end{tabular}
+		\item Różna reprezentacja tych samych zasobów (html, xml, json)\\
+			/people.xml, /people.json, etc.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -439,6 +475,8 @@ development:
 
 \begin{frame}
   \frametitle{ActiveSupport}
+	Przykłady:
+	\input{activesupport}
 \end{frame}
 
 \begin{frame}
