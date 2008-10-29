@@ -10,8 +10,8 @@
 
 \documentclass[12t]{beamer}
 \usepackage[utf8]{inputenc}
-\usepackage{polski}
 \usepackage[polish]{babel}
+\usepackage{polski}
 \usepackage{graphicx}
 \usepackage{color}
 \input{pygments}
@@ -67,7 +67,7 @@
   \begin{itemize}
   \item w pełni obiektowy
   \item prosta składnia, samokomentujący się kod
-	\input{selfcomment}
+  \input{selfcomment}
   \end{itemize}
 \end{frame}
 
@@ -132,17 +132,20 @@
 
 \subsection{Monkey patching}
 \begin{frame}
-  \frametitle{Monkey patching - przykład}
+  \frametitle{Monkey patching - problem}
   \input{monkeypatching1}
+  \note{Fajnie byłoby, gdyby metoda index przyjmowała blok i zwróciła
+    w tym przypadku index równy 6}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Monkey patching - przykład, c.d.}
+  \frametitle{Monkey patching - rozwiązanie}
   \input{monkeypatching2}
+  \note{Podobnie jak w poprzednim przypadku - metoda index przyjmuje
+    blok w Ruby 1.8.7}
 \end{frame}
 
 \subsection{Metaprogramowanie}
-
 \begin{frame}
   \frametitle{Metaprogramowanie}
   \begin{itemize}
@@ -194,7 +197,7 @@
   \item język zaprojektowany \textbf{dla ludzi}
   \item radość z programowania
   \item TIMTOWTDI - wolność wyboru (jak w Perlu, przeciwnie niż w
-    Pythonie), konwencje pozwalają na uniknięcie typowego „perlarstwa”
+    Pythonie)
   \item zasada najmniejszego zaskoczenia - Ruby jest intuicyjny
   \end{itemize}
   \note{Stworzony by cieszyć}
@@ -214,10 +217,8 @@
 \begin{frame}
   \frametitle{Rails way}
   \begin{itemize}
-  \item Jeden sposób na zaprojektowanie aplikacji webowej
   \item Convention over Configuration
   \item Don't Repeat Yourself
-  \item Fat model, thin controller w MVC
   \end{itemize}
 \end{frame}
 
@@ -233,6 +234,14 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Architektura Rails}
+  \begin{figure}
+    \centering
+    \includegraphics[width=10cm]{rails_architecture.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
   \frametitle{ActiveRecord}
   \begin{itemize}
   \item domyślny ORM dla Rails
@@ -243,7 +252,7 @@
 
 \begin{frame}
   \begin{quote}
-    I have never seen an Active Record implementation as complete or as useful as Rails
+    “I have never seen an Active Record implementation as complete or as useful as Rails”
 
     \hfill Martin Fowler
   \end{quote}
@@ -256,26 +265,27 @@
 \begin{frame}
   \frametitle{ActiveRecord - co dostajemy?}
   \begin{itemize}
-  \item brak XML-a
+  \item prosta konfiguracja
   \item migracje bazy danych
   \item proste tworzenie asocjacji
+  \item named scopes
   \item walidatory
-  \item callbacki
+  \item callbacks
   \item transakcje
-  \item masę innych rzeczy...
+  \item wiele innych rzeczy
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Brak XML}
+  \frametitle{ActiveRecord - konfiguracja}
   \begin{itemize}
   \item nie wymaga konfiguracji za pomocą setek linii XML-a
-  \item mapowanie tabel na modele - konwencje nad konfiguracją
+  \item mapowanie tabel na modele - konwencja nad konfiguracją
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActiveRecord - YAML w akcji}
+  \frametitle{ActiveRecord - szybki start}
 \begin{verbatim}
 development:
   adapter: mysql
@@ -284,10 +294,14 @@ development:
   password: password
   host: localhost
 \end{verbatim}
+\begin{verbatim}
+$ ./script/generate model post title:string content:text
+\end{verbatim}
+  \input{configuration1}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Migracje}
+  \frametitle{ActiveRecord - migracje}
   \begin{itemize}
   \item proste w użyciu wersjonowanie schematu bazy, historia zmian
   \item Ruby zamiast SQL-a
@@ -299,16 +313,16 @@ development:
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActiveRecord - Migracje - przykład}
+  \frametitle{ActiveRecord - migracje - przykład}
   \input{migrations1}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Asocjacje}
+  \frametitle{ActiveRecord - asocjacje}
   \begin{itemize}
   \item mapowanie pomiędzy obiektami ActiveRecord
-  \item wyrażają relację takie jak ,,Użytkownik ma wiele Projektów''
-    czy ,,Produkt należy do Kategorii''
+  \item wyrażają relację takie jak “user has many projects” czy
+    “product belongs to category”
   \item oparte na metaprogramowaniu
   \item wczesne ładowanie obiektów
   \item połączenia wiele-do-wielu
@@ -316,35 +330,39 @@ development:
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActiveRecord - Asocjacje - przykład}
+  \frametitle{ActiveRecord - asocjacje - przykład}
   \input{associations1}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActiveRecord - Asocjacje - przykład, c.d.}
-  \input{associations1}
+  \frametitle{ActiveRecord - asocjacje - przykład, c.d.}
+  \input{associations2}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Walidatory}
+  \frametitle{Named scope - przykłady}
+  \input{namedscope1}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActiveRecord - walidatory}
   \begin{itemize}
-  \item gwarantują poprawne dane w bazie
-  \item przeniesienie walidacji z poziomu bazy danych do mapowanych
-    obiektów
+  \item gwarantują poprawność wprowadzanych danych
+  \item przeniesienie walidacji z poziomu bazy danych do modelu
   \item można walidować: format, długość, obecność, unikalność,
     powiązane obiekty, etc.
-  \item łatwe dodawanie własnych walidatorów
+  \item łatwe tworzenie własnych walidatorów
   \item metaprogramowanie
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Walidatory - przykład}
+  \frametitle{ActiveRecord - walidatory - przykład}
   \input{validators1}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Callbacki}
+  \frametitle{ActiveRecord - callbacks}
   \begin{itemize}
   \item wyzwalanie logiki przed lub po zmianie stanu obiektu
   \item manipulacja atrybutami obiektu przed jego utworzeniem,
@@ -354,12 +372,12 @@ development:
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Callbacki - przykład}
-  kod
+  \frametitle{ActiveRecord - callbacks - przykład}
+  \input{callbacks1}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Transakcje}
+  \frametitle{ActiveRecord - transakcje}
   \begin{itemize}
   \item bloki kodu, w których gwarantowana jest atomowość wszystkich
     operacji na bazie danych
@@ -368,7 +386,7 @@ development:
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - Transakcje - przykład}
+  \frametitle{ActiveRecord - transakcje - przykład}
   \input{transactions1}
 \end{frame}
 
@@ -377,7 +395,7 @@ development:
   \begin{itemize}
   \item Single Table Inheritance
   \item asocjacje polimorficzne
-  \item cache-owanie
+  \item optimistic locking
   \item acts\_as: state\_machine, taggable, nested\_set, commentable,
     dictionary, geocodable
   \end{itemize}
@@ -397,18 +415,23 @@ development:
 \begin{frame}
   \frametitle{ActionPack::ActionController}
   \begin{itemize}
-  \item akcje w kontrolerze
-  \item akcja renderuje daną stronę, wywołuje inną akcję bądź zwracają zasoby (REST)
+  \item request zostaje skierowany do odpowiedniej akcji
+  \item akcja zwraca odpowiedź do przeglądarki
+    \begin{itemize}
+    \item wyrenderowany widok
+    \item przekierowanie
+    \item błąd
+    \end{itemize}
+  \item cookies
   \item sesje
   \item flash
-  \item callbacki
-  \item akcje CRUD
+  \item filtry
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActionPack::ActionController}
-  przykłady ActionController
+  \input{actioncontroller1}
 \end{frame}
 
 \begin{frame}
@@ -425,44 +448,78 @@ development:
   przykłady ActionView
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{ActionPack::ActionView - HAML}
+  \begin{columns}
+    \column{4cm}
+\begin{verbatim}
+%table#beers.important
+  %tr.header
+    %th Name
+    %th Type
+  - @beers.each do |beer|
+    %tr
+      %td= beer.name
+      %td= beer.type
+\end{verbatim}
+\column{6cm}
+\begin{verbatim}
+<table class='important' id='beers'>
+  <tr class='header'>
+    <th>Name</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>Pilsner Urquell</td>
+    <td>pilsner</td>
+  </tr>
+  <tr>
+    <td>Żywiec Porter</td>
+    <td>porter</td>
+  </tr>
+</table>
+\end{verbatim}
+\end{columns}
+\end{frame}
+
 \begin{frame}
   \frametitle{ActiveResource}
-  	\begin{itemize}
-			\item Komunikacja ze zdalnymi serwisami
-			\item ActiveRecord dla REST
-			\item Wysyłanie/otrzymywanie danych w xml
-		\end{itemize}
+    \begin{itemize}
+      \item Komunikacja ze zdalnymi serwisami
+      \item ActiveRecord dla REST
+      \item Wysyłanie/otrzymywanie danych w xml
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{REST (Representional State Transfer)}
-  	\begin{itemize}
-			\item REST jest alternatywą dla SOAP
-			\item REST wykorzstuje metody protokołu HTTP:\\
-				GET, POST, PUT, DELETE
-			\item Implementacja REST w Rails:\\
-				CRUD (Create, Read, Update, Delete)
-			\end{itemize}
+    \begin{itemize}
+      \item REST jest alternatywą dla SOAP
+      \item REST wykorzstuje metody protokołu HTTP:\\
+        GET, POST, PUT, DELETE
+      \item Implementacja REST w Rails:\\
+        CRUD (Create, Read, Update, Delete)
+      \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{CRUD}
-	\begin{itemize}
-		\item	Struktura\\
-			\begin{tabular}{l|l|l|l}
-				Metoda & URL & Akcja & SQL \\
-				\hline
-				POST & /people & create & insert \\
-				\hline
-				GET & /people/1 & show & select\\
-				\hline
-				PUT & /people/1 & update & update\\
-				\hline
-				DELETE & /people/1 & destroy & delete\\
-			\end{tabular}
-		\item Różna reprezentacja tych samych zasobów (html, xml, json)\\
-			/people.xml, /people.json, etc.
-	\end{itemize}
+  \begin{itemize}
+    \item Struktura\\
+      \begin{tabular}{l|l|l|l}
+        Metoda & URL & Akcja & SQL \\
+        \hline
+        POST & /people & create & insert \\
+        \hline
+        GET & /people/1 & show & select\\
+        \hline
+        PUT & /people/1 & update & update\\
+        \hline
+        DELETE & /people/1 & destroy & delete\\
+      \end{tabular}
+    \item Różna reprezentacja tych samych zasobów (html, xml, json)\\
+      /people.xml, /people.json, etc.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -475,8 +532,7 @@ development:
 
 \begin{frame}
   \frametitle{ActiveSupport}
-	Przykłady:
-	\input{activesupport}
+  \input{activesupport}
 \end{frame}
 
 \begin{frame}
@@ -502,7 +558,7 @@ development:
 \end{frame}
 
 \begin{frame}
-  \frametitle{RSpec}
+p  \frametitle{RSpec}
   \begin{itemize}
   \item framework BDD
   \item przykłady
