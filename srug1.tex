@@ -204,7 +204,19 @@
   \frametitle{Ruby on Rails}
   \begin{itemize}
   \item David Heinemeier Hansson, 2004 r.
-  \item w pełni wyposażone środowisko do tworzenia aplikacji internetowych opartych o bazy danych zgodnie ze wzorcem MVC
+  \item kompletny framework do tworzenia aplikacji internetowych
+    opartych o bazy danych
+  \item wzorzec MVC
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rails way}
+  \begin{itemize}
+  \item Jeden sposób na zaprojektowanie aplikacji webowej
+  \item Convention over Configuration
+  \item Don't Repeat Yourself
+  \item Fat model, thin controller w MVC
   \end{itemize}
 \end{frame}
 
@@ -225,7 +237,6 @@
   \item domyślny ORM dla Rails
   \item są też inne opcje (np. DataMapper)
   \item implementacja wzorca Active Record
-  \note{M.Fowler jest autorem książek i znanym wykładowcą z tematyki architektury oprogramowania, specjalizującym się w analizie obiektowej i projektowaniu, UML, wzorcach projektowych, metodykach zwinnych, w tym Programowania ekstremalnego}
   \end{itemize}
 \end{frame}
 
@@ -235,12 +246,16 @@
 
     \hfill Martin Fowler
   \end{quote}
+  \note{M.Fowler jest autorem książek i znanym wykładowcą z tematyki
+    architektury oprogramowania, specjalizującym się w analizie
+    obiektowej i projektowaniu, UML, wzorcach projektowych, metodykach
+    zwinnych, w tym Programowania ekstremalnego}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - co dostajemy?}
   \begin{itemize}
-  \item brak XML'a
+  \item brak XML-a
   \item migracje bazy danych
   \item proste tworzenie asocjacji
   \item walidatory
@@ -253,67 +268,86 @@
 \begin{frame}
   \frametitle{ActiveRecord - Brak XML}
   \begin{itemize}
-  \item nie wymaga konfiguracji za pomocą setek linii XML'a
+  \item nie wymaga konfiguracji za pomocą setek linii XML-a
   \item mapowanie tabel na modele - konwencje nad konfiguracją
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{ActiveRecord - Brak XML - przykład}
-
+\begin{frame}[fragile]
+  \frametitle{ActiveRecord - YAML w akcji}
+\begin{verbatim}
+development:
+  adapter: mysql
+  database: demo
+  username: admin
+  password: password
+  host: localhost
+\end{verbatim}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Migracje}
   \begin{itemize}
   \item proste w użyciu wersjonowanie schematu bazy, historia zmian
-  \item Ruby zamiast SQL'a
+  \item Ruby zamiast SQL-a
+    \note{Uzyskujemy przenośność pomiędzy różnymi silnikami
+      bazodanowymi}
   \item praca w zespołach
   \item synchronizacja
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{ActiveRecord - Migracje - przykład}
-  kod
+  \input{migrations1}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Asocjacje}
   \begin{itemize}
   \item mapowanie pomiędzy obiektami ActiveRecord
-  \item wyrażają relację takie jak 'Użytkownik ma wiele Projektów' czy 'Produkt należy do Kategorii'
+  \item wyrażają relację takie jak ,,Użytkownik ma wiele Projektów''
+    czy ,,Produkt należy do Kategorii''
   \item oparte na metaprogramowaniu
   \item wczesne ładowanie obiektów
   \item połączenia wiele-do-wielu
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{ActiveRecord - Asocjacje - przykład}
+  \input{associations1}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ActiveRecord - Asocjacje - przykład, c.d.}
+  \input{associations1}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Walidatory}
   \begin{itemize}
   \item gwarantują poprawne dane w bazie
-  \item przeniesienie walidacji z poziomu bazy danych do mapowanych obiektów
-  \item można walidować: format, długość, obecność, unikalność, powiązane obiekty ...
+  \item przeniesienie walidacji z poziomu bazy danych do mapowanych
+    obiektów
+  \item można walidować: format, długość, obecność, unikalność,
+    powiązane obiekty, etc.
   \item łatwe dodawanie własnych walidatorów
-  \item metaprogramowanie :)
+  \item metaprogramowanie
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Walidatory - przykład}
-  kod
+  \input{validators1}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Callbacki}
   \begin{itemize}
-  \item wyzwalanie logiki przed lub po zmianach stanu obiektów
-  \item manipulacja atrybutami obiektu przed jego utworzeniem, zapisem, usunięciem lub walidacją
+  \item wyzwalanie logiki przed lub po zmianie stanu obiektu
+  \item manipulacja atrybutami obiektu przed jego utworzeniem,
+    zapisem, usunięciem lub walidacją
   \item przeniesienie logiki z kontrolera do modelu
   \end{itemize}
 \end{frame}
@@ -326,14 +360,15 @@
 \begin{frame}
   \frametitle{ActiveRecord - Transakcje}
   \begin{itemize}
-  \item bloki kodu, w których gwarantowana jest atomowość wszystkich operacji na bazie danych
+  \item bloki kodu, w których gwarantowana jest atomowość wszystkich
+    operacji na bazie danych
   \item różne modele w jednej transakcji
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{ActiveRecord - Transakcje - przykład}
-  kod
+  \input{transactions1}
 \end{frame}
 
 \begin{frame}
@@ -341,8 +376,9 @@
   \begin{itemize}
   \item Single Table Inheritance
   \item asocjacje polimorficzne
-  \item cachowanie
-  \item acts\_as: state\_machine, taggable, nested\_set, commentable, dictionary, geocodable ...
+  \item cache-owanie
+  \item acts\_as: state\_machine, taggable, nested\_set, commentable,
+    dictionary, geocodable
   \end{itemize}
 \end{frame}
 
@@ -411,16 +447,6 @@
 
 \begin{frame}
   Przykłady wdrożeń
-\end{frame}
-
-\begin{frame}
-  \frametitle{Rails way}
-  \begin{itemize}
-  \item Jeden sposób na zaprojektowanie aplikacji webowej
-  \item Convention over Configuration
-  \item Don't Repeat Yourself
-  \item Fat model, thin controller w MVC
-  \end{itemize}
 \end{frame}
 
 \section{Ruby - dodatki}
