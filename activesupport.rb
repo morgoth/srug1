@@ -8,5 +8,5 @@ Time.now.at_beginning_of_year
 #=> 5368709120
 "good beer".titleize.pluralize
 #=> "Good Beers"
-["Pilsner Urquell", "Guiness", "Paulaner"].to_sentence
-#=> "Pilsner Urquell, Guiness and Paulaner"
+["Pilsner Urquell", "Оболонь", "Paulaner"].to_sentence
+#=> "Pilsner Urquell, Оболонь and Paulaner"

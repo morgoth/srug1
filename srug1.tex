@@ -10,6 +10,7 @@
 
 \documentclass[12t]{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
 \usepackage[polish]{babel}
 \usepackage{polski}
 \usepackage{graphicx}
@@ -58,6 +59,7 @@
   \item 1995 rok, Yukihiro Matsumoto aka Matz
   \item inspirowany przez CLU, Eiffel, Lisp, Perl, Python, Smalltalk
   \item interpretowany
+  \item wieloparadygmatowy
   \item bardzo wysokiego poziomu (VHLL)
   \end{itemize}
 \end{frame}
@@ -88,10 +90,24 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Domknięcia}
   \begin{itemize}
-  \item bloki i lambdy (domknięcia) - wygodne przekazywanie funkcji
-    jako parametrów + przykład
+  \item bloki kodu, które mogą być przekazywane jako argumenty i
+    zwracane jako wynik działania funkcji (metody)
+  \item są podstawową cechą języków funkcyjnych
+  \item odwołują się do zmiennych z kontekstu, w którym zostały
+    stworzone, a nie z którego są wywoływane
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domknięcia - przykład}
+  \input{closures1}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Domknięcia - wykorzystanie}
+  \input{closures2}
 \end{frame}
 
 \begin{frame}
@@ -450,8 +466,10 @@ $ ./script/generate model post title:string content:text
 
 \begin{frame}[fragile]
   \frametitle{ActionPack::ActionView - HAML}
-  \begin{columns}
-    \column{4cm}
+  \begin{footnotesize}
+  \begin{columns}[T]
+    \begin{column}{4cm}
+
 \begin{verbatim}
 %table#beers.important
   %tr.header
@@ -462,7 +480,10 @@ $ ./script/generate model post title:string content:text
       %td= beer.name
       %td= beer.type
 \end{verbatim}
-\column{6cm}
+
+    \end{column}
+
+    \begin{column}{6cm}
 \begin{verbatim}
 <table class='important' id='beers'>
   <tr class='header'>
@@ -479,7 +500,10 @@ $ ./script/generate model post title:string content:text
   </tr>
 </table>
 \end{verbatim}
-\end{columns}
+
+    \end{column}
+  \end{columns}
+  \end{footnotesize}
 \end{frame}
 
 \begin{frame}
