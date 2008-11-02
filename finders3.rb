@@ -1,8 +1,8 @@
-Elephant.count
-# SELECT count(*) AS count_all FROM "elephants"
+Student.count
+# SELECT count(*) AS count_all FROM "students"
 
-Visit.sum(:duration)
-# SELECT sum(duration) AS sum_duration FROM "visits"
+Product.sum(:price)
+# SELECT sum(price) AS sum_price FROM "products"
 
 Visit.average("duration / 3600.0", :group_by => "day")
 # SELECT sum(duration / 3600.0)

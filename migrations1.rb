@@ -1,14 +1,14 @@
-class CreatePosts < ActiveRecord::Migration
+class CreateStudents < ActiveRecord::Migration
   def self.up
-    create_table :posts do |t|
-      t.string :title
-      t.text :content
-      t.belongs_to :category
+    create_table :students do |t|
+      t.string :name
+      t.integer :beers_count, :null => false
+      t.belongs_to :dormitory
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :posts
+    drop_table :students
   end
 end

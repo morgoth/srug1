@@ -65,6 +65,15 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Ruby - implementacje}
+\begin{frame}
+  \frametitle{Ruby - implementacje}
+  \begin{itemize}
+  \item interpretery: MRI, Ruby Enterprise, JRuby, IronRuby
+  \item maszyny wirtualne: MagLev, Rubinius, YARV
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Ruby, c.d.}
   \begin{itemize}
@@ -253,35 +262,42 @@
 \end{frame}
 
 \section{Ruby - dodatki}
-\begin{frame}
+\begin{frame}[fragile]
+  \frametitle{Rake - Ruby Make}
+  \begin{footnotesize}
+    \input{rakefile1}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{RSpec - framework BDD}
+  \begin{footnotesize}
+    \input{rspec1}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{RubyGems}
-  system paczek: gem install rails
+  \begin{itemize}
+  \item system paczek RubyGems
+  \item zależności pomiędzy gemami
+  \item łatwa aktualizacja gemów
+  \item prawie 4000 gemów w repozytorium
+  \end{itemize}
+  \begin{block}{Przykład}
+\begin{verbatim}
+$ gem install rails
+\end{verbatim}
+  \end{block}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Rake}
-  \begin{itemize}
-  \item Rake - Ruby Make
-  \item przykłady
-  \end{itemize}
-\end{frame}
+  \begin{quote}
+    “I always thought Smalltalk would beat Java. I just
+    didn't know it would be called 'Ruby' when it did.”
 
-\begin{frame}
-  \frametitle{RSpec}
-  \begin{itemize}
-  \item framework BDD
-  \item przykłady
-  \end{itemize}
-\end{frame}
-
-\section{Ruby - rozwój}
-\begin{frame}
-  \frametitle{Ruby - rozwój}
-  \begin{itemize}
-  \item implementacje: MRI, Ruby Enterprise, JRuby, IronRuby
-  \item maszyny wirtualne: MagLev, Rubinius, YARV
-  \item Github
-  \end{itemize}
+    \hfill Kent Beck
+  \end{quote}
 \end{frame}
 
 \section{Ruby on Rails}
@@ -352,18 +368,6 @@ $ ./script/server
 \end{frame}
 
 \begin{frame}
-  \begin{quote}
-    “I have never seen an Active Record implementation as complete or as useful as Rails”
-
-    \hfill Martin Fowler
-  \end{quote}
-  \note{M.Fowler jest autorem książek i znanym wykładowcą z tematyki
-    architektury oprogramowania, specjalizującym się w analizie
-    obiektowej i projektowaniu, UML, wzorcach projektowych, metodykach
-    zwinnych, w tym Programowania ekstremalnego}
-\end{frame}
-
-\begin{frame}
   \frametitle{ActiveRecord - co dostajemy?}
   \begin{itemize}
   \item prosta konfiguracja
@@ -374,15 +378,6 @@ $ ./script/server
   \item wywołania zwrotne
   \item transakcje
   \item kilka innych rzeczy
-  \end{itemize}
-\end{frame}
-
-% WYRZUCIĆ, CZY NIE WYRZUCIĆ? Oto jest pytanie!
-\begin{frame}
-  \frametitle{ActiveRecord - konfiguracja}
-  \begin{itemize}
-  \item nie wymaga konfiguracji za pomocą setek linii XML-a
-  \item mapowanie tabel na modele - konwencja nad konfiguracją
   \end{itemize}
 \end{frame}
 
@@ -441,7 +436,7 @@ $ rake db:migrate
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRcord - zapytania}
+  \frametitle{ActiveRecord - zapytania}
   \begin{itemize}
   \item Różne sposoby budowania zapytań
   \item Nazwane zapytania
@@ -519,7 +514,6 @@ $ rake db:migrate
   \end{block}
 \end{frame}
 
-% TODO może wywalić trzeba go
 \begin{frame}
   \frametitle{ActiveRecord}
   \begin{itemize}
@@ -529,6 +523,20 @@ $ rake db:migrate
   \item acts\_as: state\_machine, taggable, nested\_set, commentable,
     dictionary, geocodable
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{quote}
+    “I have never seen an Active Record implementation as complete or as useful as Rails”
+
+    \begin{small}
+      \hfill Martin Fowler, software architect
+    \end{small}
+  \end{quote}
+  \note{M.Fowler jest autorem książek i znanym wykładowcą z tematyki
+    architektury oprogramowania, specjalizującym się w analizie
+    obiektowej i projektowaniu, UML, wzorcach projektowych, metodykach
+    zwinnych, w tym Programowania ekstremalnego}
 \end{frame}
 
 \begin{frame}
@@ -629,34 +637,44 @@ $ rake db:migrate
 \end{frame}
 
 \begin{frame}
-  Przykłady wdrożeń
+  \frametitle{Przykłady wdrożeń}
+  \begin{itemize}
+  \item Twitter
+  \item Basecamp
+  \item GitHub
+  \item Shopify
+  \item Slideshare
+  \end{itemize}
 \end{frame}
 
-\section{Ruby - podsumowanie}
+\section{Podsumowanie}
 \begin{frame}
-  \frametitle{Jak zacząć}
+  \frametitle{Jak zacząć?}
   \begin{itemize}
   \item instant-rails
-  \item github
+  \item github.com
   \item opensourcerails.com
   \item heroku.com
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Po 3 latach z Ruby - co się zmienia}
-  \begin{itemize}
-  \item Ruby jako pierwszy pozwolił mi czerpać radość z
-    programowania. Wcześniej były Java, w C/C++ i inne
-  \item Pragmatyzm. Prosty, czytelny kod. Mało kodu. Brak
-    komentarzy. Więcej czasu na życie.
-  \item Nie wrócę do już do języków ze statycznym typowaniem. Czytałem
-    Bruca Eckela kiedy mówił, że statyczne typowanie to przyszłość. Po
-    latach zmienił zdanie. To samo dotyczy deklarowania wyrzucanych
-    wyjątków (patrz Java).
-  \item Większy dystans i szersze spojrzenie na rzemiosło programowania.
-  \item 1 nowy język programowania co roku (ObjC, Erlang, Lisp, ...)
-  \end{itemize}
+  \begin{quote}
+    “Rails is the most well thought-out web development framework I've
+    ever used. (...) Nobody has done it like this before.”
+
+    \begin{small}
+      \hfill James Duncan Davidson, Creator of Tomcat and Ant
+    \end{small}
+  \end{quote}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \begin{Large}
+      Dziękujemy za wytrwałość!
+    \end{Large}
+  \end{center}
 \end{frame}
 
 \end{document}

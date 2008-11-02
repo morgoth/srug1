@@ -10,9 +10,8 @@ Beer.find(1)
 Subject.find([3, 5, 7])
 # SELECT * FROM "subjects" WHERE ("subjects"."id" IN (3,5,7))
 
-Post.find(:all,
-   :conditions => { :created_at => (5.days.ago)..(1.days.ago) })
-# SELECT * FROM "posts" WHERE
-#  ("posts"."created_at" BETWEEN '2008-10-28' AND '2008-11-01')
+Student.all(:conditions => { :beer_count => 10..20 })
+# SELECT * FROM "students" WHERE
+#  ("students"."beer_count" BETWEEN '10' AND '20')
 
 
