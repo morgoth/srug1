@@ -62,6 +62,31 @@
   \item interpretowany
   \item wieloparadygmatowy
   \item bardzo wysokiego poziomu (VHLL)
+  \item w pełni obiektowy
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cechy}
+  \begin{itemize}
+  \item dziedziczenie jednobazowe
+  \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
+    włączyć gotową implementację zbioru metod do danej klasy
+    (\emph{mixin})
+    \note[item]{Moduły pełnią też rolę przestrzeni nazw}
+  \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
+    np. w Javie
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cechy, c.d.}
+  \begin{itemize}
+  \item bogata biblioteka standardowa
+  \item garbage collector
+  \item przeciążanie operatorów
+  \item liczby całkowite o dowolnych rozmiarach
+  \item wyrażenia regularne wbudowane w składnię
   \end{itemize}
 \end{frame}
 
@@ -74,18 +99,12 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Ruby, c.d.}
-  \begin{itemize}
-  \item w pełni obiektowy
-  \item prosta składnia, samokomentujący się kod
-    \begin{block}{Przykłady}
-      \input{selfcomment1}
-    \end{block}
-  \end{itemize}
+\begin{frame}[fragile]
+  \frametitle{Samokomentujący się kod}
+  \input{selfcomment1}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Nazewnictwo}
   \begin{small}
     \input{naming1}
@@ -94,15 +113,15 @@
     mają dla interpretera żadnego znaczenia}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Stałe są zmienne}
   \input{consts1}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \begin{itemize}
   \item omijane przez garbage collector
-  \item wykorzystywane m.in. jako klucze w tablicach haszujących
+  \item wykorzystywane m.in. jako klucze w tablicach asocjacyjnych
   \end{itemize}
   \frametitle{Symbole}
   \begin{block}{Przykład}
@@ -110,11 +129,9 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Duck typing}
-  \begin{itemize}
-  \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
-  \end{itemize}
+\begin{frame}[fragile]
+  \frametitle{Podstawowe elementy - tablice i hasze}
+  \input{ruby1}
 \end{frame}
 
 \begin{frame}
@@ -127,10 +144,17 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Duck typing}
+  \begin{itemize}
+  \item rozpoznawanie typów na podstawie ich zachowania, a nie deklaracji
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Duck typing - przykład}
- \begin{small}
+ \begin{footnotesize}
     \input{ducktyping1}
-  \end{small}
+  \end{footnotesize}
 \end{frame}
 
 \begin{frame}
@@ -152,30 +176,6 @@
 \begin{frame}
   \frametitle{Domknięcia - wykorzystanie}
   \input{closures2}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Cechy}
-  \begin{itemize}
-  \item dziedziczenie jednobazowe
-  \item moduły zapewniają rodzaj dziedziczenia wielobazowego
-    pozwalający włączyć gotową implementację zbioru metod do danej
-    klasy (\emph{mixin})
-    \note[item]{Moduły pełnią też rolę przestrzeni nazw}
-  \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
-    np. w Javie
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Cechy, c.d.}
-  \begin{itemize}
-  \item bogata biblioteka standardowa
-  \item garbage collector
-  \item przeciążanie operatorów
-  \item liczby całkowite o dowolnych rozmiarach
-  \item wyrażenia regularne wbudowane w składnię
-  \end{itemize}
 \end{frame}
 
 \subsection{Otwarte klasy}
@@ -568,18 +568,9 @@ $ rake db:migrate
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActionPack::ActionController}
-  \begin{small}
-  \input{actioncontroller1}
-  \end{small}
-\end{frame}
-
-\begin{frame}
   \frametitle{ActionController::Routing}
   \begin{itemize}
   \item wiązanie URI z akcjami odpowiednich kontrolerów
-  \item zasoby (REST)
-  \item ścieżki nazwane
   \end{itemize}
   \begin{block}{Przykład}
     \input{routing1}
@@ -587,12 +578,11 @@ $ rake db:migrate
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActionController::Routing, przykłady}
-  \begin{scriptsize}
-    \input{routing2}
-  \end{scriptsize}
+  \frametitle{ActionPack::ActionController}
+  \begin{small}
+  \input{actioncontroller1}
+  \end{small}
 \end{frame}
-
 
 \begin{frame}
   \frametitle{ActionPack::ActionView}
@@ -604,12 +594,12 @@ $ rake db:migrate
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActionPack::ActionView - ERb}
+  \frametitle{ActionPack::ActionView - index.html.erb}
   \input{erb1}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{ActionPack::ActionView - HAML}
+  \frametitle{ActionPack::ActionView - index.html.haml}
   \begin{footnotesize}
   \begin{columns}[T]
     \begin{column}{4cm}
@@ -640,6 +630,7 @@ $ rake db:migrate
   \frametitle{Przykłady wdrożeń}
   \begin{itemize}
   \item Twitter
+  \item Yellowpages
   \item Basecamp
   \item GitHub
   \item Shopify

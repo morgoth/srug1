@@ -3,16 +3,19 @@ class Duck
     "Quack!"
   end
 end
-
-duck = Duck.new
-recorder = OpenStruct.new
-recorder.quack = duck.quack
-
+class Dog
+  def quack
+    "Quack!"
+  end
+end
 def make_it_quack(duck)
   puts duck.quack
 end
 
+duck = Duck.new
+dog = Dog.new
+
 make_it_quack(duck)
 # Quack!
-make_it_quack(recorder)
+make_it_quack(dog)
 # Quack!
