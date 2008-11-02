@@ -1,0 +1,10 @@
+\begin{verbatim}
+%table#beers.important
+  %tr.header
+    %th Name
+    %th Type
+  - @beers.each do |beer|
+    %tr
+      %td= beer.name
+      %td= beer.type
+\end{verbatim}

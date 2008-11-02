@@ -1,0 +1,11 @@
+<table class='beers' id='important'>
+  <tr class='header'>
+    <th>Name</th>
+    <th>Type</th>
+  <%- @beers.each do |beer| %>
+  <tr>
+    <td><%= beer.name %></td>
+    <td><%= beer.type %></td>
+  </tr>
+  <%- end %>
+</table>
