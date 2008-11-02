@@ -1,7 +1,7 @@
-greetings = Greetings.new
+supermarket_teller = SupermarketTeller.new
 
-greetings.say_hello_to_world
-# Hello, World!
+supermarket_teller.jaki_jest_lidl?
+# Lidl jest tani!
 
-greetings.say_goodbye_to_world
+supermarket_teller.jaka_jest_biedronka?
 # NoMethodError: undefined method ...

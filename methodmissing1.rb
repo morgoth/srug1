@@ -1,8 +1,7 @@
-class Greetings
+class SupermarketTeller
   def method_missing(method_name, *args)
-    if method_name.to_s =~ /^say_hello_to_(.+)/
-      name = $1.capitalize
-      puts "Hello, #{name}!"
+    if method_name.to_s =~ /lidl/
+      puts "Lidl jest tani!"
     else
       raise NoMethodError,
         "undefined method `#{method_name}' for #{self}"

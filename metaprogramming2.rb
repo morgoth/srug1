@@ -1,5 +1,5 @@
 class Song
-  my_attr_accessor :name, :duration
+  attr_accessor :name, :duration
 end
 
 song = Song.new

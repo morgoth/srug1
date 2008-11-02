@@ -18,6 +18,7 @@
 \input{pygments}
 
 \usetheme{Pittsburgh}
+
 \author{Silesian Ruby Users' Group}
 \title{Ruby on Rails}
 \setbeamercovered{transparent}
@@ -69,8 +70,35 @@
   \begin{itemize}
   \item w pełni obiektowy
   \item prosta składnia, samokomentujący się kod
-  \input{selfcomment}
+    \begin{block}{Przykłady}
+      \input{selfcomment1}
+    \end{block}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nazewnictwo}
+  \begin{small}
+    \input{naming1}
+  \end{small}
+  \note{Styl formatowania kodu nie jest narzucony z góry, wcięcia nie
+    mają dla interpretera żadnego znaczenia}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stałe są zmienne}
+  \input{consts1}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item omijane przez garbage collector
+  \item wykorzystywane m.in. jako klucze w tablicach haszujących
+  \end{itemize}
+  \frametitle{Symbole}
+  \begin{block}{Przykład}
+    \input{symbols1}
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -90,10 +118,17 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Duck typing - przykład}
+ \begin{small}
+    \input{ducktyping1}
+  \end{small}
+\end{frame}
+
+\begin{frame}
   \frametitle{Domknięcia}
   \begin{itemize}
-  \item bloki kodu, które mogą być przekazywane jako argumenty i
-    zwracane jako wynik działania funkcji (metody)
+  \item bloki kodu mogą być przekazywane jako argumenty i zwracane
+    jako wynik działania funkcji (metody)
   \item są podstawową cechą języków funkcyjnych
   \item odwołują się do zmiennych z kontekstu, w którym zostały
     stworzone, a nie z którego są wywoływane
@@ -120,8 +155,6 @@
     \note[item]{Moduły pełnią też rolę przestrzeni nazw}
   \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
     np. w Javie
-  \item styl formatowania kodu nie jest narzucony z góry
-    \note[item]{Wcięcia nie mają żadnego znaczenia dla kompilatora}
   \end{itemize}
 \end{frame}
 
@@ -219,6 +252,38 @@
   \note{Stworzony by cieszyć}
 \end{frame}
 
+\section{Ruby - dodatki}
+\begin{frame}
+  \frametitle{RubyGems}
+  system paczek: gem install rails
+\end{frame}
+
+\begin{frame}
+  \frametitle{Rake}
+  \begin{itemize}
+  \item Rake - Ruby Make
+  \item przykłady
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{RSpec}
+  \begin{itemize}
+  \item framework BDD
+  \item przykłady
+  \end{itemize}
+\end{frame}
+
+\section{Ruby - rozwój}
+\begin{frame}
+  \frametitle{Ruby - rozwój}
+  \begin{itemize}
+  \item implementacje: MRI, Ruby Enterprise, JRuby, IronRuby
+  \item maszyny wirtualne: MagLev, Rubinius, YARV
+  \item Github
+  \end{itemize}
+\end{frame}
+
 \section{Ruby on Rails}
 \begin{frame}
   \frametitle{Ruby on Rails}
@@ -253,8 +318,28 @@
   \frametitle{Architektura Rails}
   \begin{figure}
     \centering
-    \includegraphics[width=10cm]{rails_architecture.png}
+    \includegraphics[width=\linewidth]{railsarchitecture.png}
   \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Zaczynamy!}
+  \begin{columns}[T]
+    \begin{column}{2.3cm}
+      \includegraphics[width=2.3cm]{structure.png}
+    \end{column}
+    \begin{column}{7.5cm}
+\begin{verbatim}
+# gem install rails
+
+$ rails myapp
+
+$ cd myapp
+
+$ ./script/server
+\end{verbatim}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -284,14 +369,15 @@
   \item prosta konfiguracja
   \item migracje bazy danych
   \item proste tworzenie asocjacji
-  \item named scopes
+  \item zapytania
   \item walidatory
-  \item callbacks
+  \item wywołania zwrotne
   \item transakcje
-  \item wiele innych rzeczy
+  \item kilka innych rzeczy
   \end{itemize}
 \end{frame}
 
+% WYRZUCIĆ, CZY NIE WYRZUCIĆ? Oto jest pytanie!
 \begin{frame}
   \frametitle{ActiveRecord - konfiguracja}
   \begin{itemize}
@@ -312,6 +398,8 @@ development:
 \end{verbatim}
 \begin{verbatim}
 $ ./script/generate model post title:string content:text
+
+$ rake db:migrate
 \end{verbatim}
   \input{configuration1}
 \end{frame}
@@ -324,7 +412,6 @@ $ ./script/generate model post title:string content:text
     \note{Uzyskujemy przenośność pomiędzy różnymi silnikami
       bazodanowymi}
   \item praca w zespołach
-  \item synchronizacja
   \end{itemize}
 \end{frame}
 
@@ -336,12 +423,10 @@ $ ./script/generate model post title:string content:text
 \begin{frame}
   \frametitle{ActiveRecord - asocjacje}
   \begin{itemize}
-  \item mapowanie pomiędzy obiektami ActiveRecord
+  \item mapowanie powiązań pomiędzy obiektami ActiveRecord
   \item wyrażają relację takie jak “user has many projects” czy
     “product belongs to category”
   \item oparte na metaprogramowaniu
-  \item wczesne ładowanie obiektów
-  \item połączenia wiele-do-wielu
   \end{itemize}
 \end{frame}
 
@@ -356,8 +441,39 @@ $ ./script/generate model post title:string content:text
 \end{frame}
 
 \begin{frame}
+  \frametitle{ActiveRcord - zapytania}
+  \begin{itemize}
+  \item Różne sposoby budowania zapytań
+  \item Nazwane zapytania
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ActiveRecord - przykłady zapytań}
+  \begin{footnotesize}
+    \input{finders1}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ActiveRecord - przykłady zapytań c.d.}
+  \begin{footnotesize}
+    \input{finders2}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ActiveRecord - przykłady zapytań c.d.}
+  \begin{small}
+    \input{finders3}
+  \end{small}
+\end{frame}
+
+\begin{frame}
   \frametitle{Named scope - przykłady}
-  \input{namedscope1}
+  \begin{small}
+    \input{namedscope1}
+  \end{small}
 \end{frame}
 
 \begin{frame}
@@ -368,7 +484,6 @@ $ ./script/generate model post title:string content:text
   \item można walidować: format, długość, obecność, unikalność,
     powiązane obiekty, etc.
   \item łatwe tworzenie własnych walidatorów
-  \item metaprogramowanie
   \end{itemize}
 \end{frame}
 
@@ -378,7 +493,7 @@ $ ./script/generate model post title:string content:text
 \end{frame}
 
 \begin{frame}
-  \frametitle{ActiveRecord - callbacks}
+  \frametitle{ActiveRecord - wywołania zwrotne}
   \begin{itemize}
   \item wyzwalanie logiki przed lub po zmianie stanu obiektu
   \item manipulacja atrybutami obiektu przed jego utworzeniem,
@@ -399,13 +514,12 @@ $ ./script/generate model post title:string content:text
     operacji na bazie danych
   \item różne modele w jednej transakcji
   \end{itemize}
+  \begin{block}{Przykład}
+    \input{transactions1}
+  \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{ActiveRecord - transakcje - przykład}
-  \input{transactions1}
-\end{frame}
-
+% TODO może wywalić trzeba go
 \begin{frame}
   \frametitle{ActiveRecord}
   \begin{itemize}
@@ -431,7 +545,7 @@ $ ./script/generate model post title:string content:text
 \begin{frame}
   \frametitle{ActionPack::ActionController}
   \begin{itemize}
-  \item request zostaje skierowany do odpowiedniej akcji
+  \item request zostaje skierowany do odpowiedniej akcji (routing)
   \item akcja zwraca odpowiedź do przeglądarki
     \begin{itemize}
     \item wyrenderowany widok
@@ -447,8 +561,30 @@ $ ./script/generate model post title:string content:text
 
 \begin{frame}
   \frametitle{ActionPack::ActionController}
+  \begin{small}
   \input{actioncontroller1}
+  \end{small}
 \end{frame}
+
+\begin{frame}
+  \frametitle{ActionController::Routing}
+  \begin{itemize}
+  \item wiązanie URI z akcjami odpowiednich kontrolerów
+  \item zasoby (REST)
+  \item ścieżki nazwane
+  \end{itemize}
+  \begin{block}{Przykład}
+    \input{routing1}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ActionController::Routing, przykłady}
+  \begin{scriptsize}
+    \input{routing2}
+  \end{scriptsize}
+\end{frame}
+
 
 \begin{frame}
   \frametitle{ActionPack::ActionView}
@@ -459,9 +595,9 @@ $ ./script/generate model post title:string content:text
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{ActionPack::ActionView}
-  przykłady ActionView
+\begin{frame}[fragile]
+  \frametitle{ActionPack::ActionView - ERb}
+  \input{erb1}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -469,89 +605,13 @@ $ ./script/generate model post title:string content:text
   \begin{footnotesize}
   \begin{columns}[T]
     \begin{column}{4cm}
-
-\begin{verbatim}
-%table#beers.important
-  %tr.header
-    %th Name
-    %th Type
-  - @beers.each do |beer|
-    %tr
-      %td= beer.name
-      %td= beer.type
-\end{verbatim}
-
+      \input{haml1}
     \end{column}
-
     \begin{column}{6cm}
-\begin{verbatim}
-<table class='important' id='beers'>
-  <tr class='header'>
-    <th>Name</th>
-    <th>Type</th>
-  </tr>
-  <tr>
-    <td>Pilsner Urquell</td>
-    <td>pilsner</td>
-  </tr>
-  <tr>
-    <td>Żywiec Porter</td>
-    <td>porter</td>
-  </tr>
-</table>
-\end{verbatim}
-
+      \input{haml2}
     \end{column}
   \end{columns}
   \end{footnotesize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ActiveResource}
-    \begin{itemize}
-      \item Komunikacja ze zdalnymi serwisami
-      \item ActiveRecord dla REST
-      \item Wysyłanie/otrzymywanie danych w xml
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{REST (Representional State Transfer)}
-    \begin{itemize}
-      \item REST jest alternatywą dla SOAP
-      \item REST wykorzstuje metody protokołu HTTP:\\
-        GET, POST, PUT, DELETE
-      \item Implementacja REST w Rails:\\
-        CRUD (Create, Read, Update, Delete)
-      \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{CRUD}
-  \begin{itemize}
-    \item Struktura\\
-      \begin{tabular}{l|l|l|l}
-        Metoda & URL & Akcja & SQL \\
-        \hline
-        POST & /people & create & insert \\
-        \hline
-        GET & /people/1 & show & select\\
-        \hline
-        PUT & /people/1 & update & update\\
-        \hline
-        DELETE & /people/1 & destroy & delete\\
-      \end{tabular}
-    \item Różna reprezentacja tych samych zasobów (html, xml, json)\\
-      /people.xml, /people.json, etc.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ActionMailer}
-  \begin{itemize}
-  \item wbudowany system do rozsyłania i odbierania poczty email
-  \item sendmail, IMAP
-  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -560,43 +620,16 @@ $ ./script/generate model post title:string content:text
 \end{frame}
 
 \begin{frame}
-  serwery HTTP: Webrick, Mongrel, Thin, Ebb, Passenger(Apache)
+  \frametitle{Serwery HTTP}
+  \begin{itemize}
+  \item Webrick
+  \item Mongrel, Thin, Ebb
+  \item Passenger (Apache 2)
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   Przykłady wdrożeń
-\end{frame}
-
-\section{Ruby - dodatki}
-\begin{frame}
-  \frametitle{RubyGems}
-  system paczek: gem install rails
-\end{frame}
-
-\begin{frame}
-  \frametitle{Rake}
-  \begin{itemize}
-  \item Rake - Ruby Make
-  \item przykłady
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-p  \frametitle{RSpec}
-  \begin{itemize}
-  \item framework BDD
-  \item przykłady
-  \end{itemize}
-\end{frame}
-
-\section{Ruby - rozwój}
-\begin{frame}
-  \frametitle{Ruby - rozwój}
-  \begin{itemize}
-  \item implementacje: MRI, Ruby Enterprise, JRuby, IronRuby
-  \item maszyny wirtualne: MagLev, Rubinius, YARV
-  \item Github
-  \end{itemize}
 \end{frame}
 
 \section{Ruby - podsumowanie}

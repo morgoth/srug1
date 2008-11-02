@@ -1,5 +1,5 @@
 class Module
-  def my_attr_accessor(*symbols)
+  def attr_accessor(*symbols)
     symbols.each do |symbol|
       module_eval %{def #{symbol}
                       @#{symbol}
