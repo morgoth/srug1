@@ -8,4 +8,4 @@ exit if restaurants.include? "wiedeński"
 
 raise ArgumentError unless argument.kind_of? String
 
-return list.uniq if list.respond_to? "uniq"
+return words.size if words.respond_to? "size"

@@ -75,6 +75,7 @@
   \end{itemize}
 \end{frame}
 
+\subsection{Cechy języka}
 \begin{frame}[fragile]
   \frametitle{Samokomentujący się kod}
   \input{selfcomment1}
@@ -82,9 +83,9 @@
 
 \begin{frame}[fragile]
   \frametitle{Nazewnictwo}
-  \begin{small}
+  \begin{footnotesize}
     \input{naming1}
-  \end{small}
+  \end{footnotesize}
   \note{Styl formatowania kodu nie jest narzucony z góry, wcięcia nie
     mają dla interpretera żadnego znaczenia}
 \end{frame}
@@ -126,6 +127,7 @@
   \end{block}
 \end{frame}
 
+\subsection{Duck typing}
 \begin{frame}
   \begin{quote}
     “If it walks like a duck and quacks like a duck, I would call it a
@@ -149,6 +151,7 @@
   \end{footnotesize}
 \end{frame}
 
+\subsection{Domknięcia}
 \begin{frame}
   \frametitle{Domknięcia}
   \begin{itemize}
@@ -206,24 +209,25 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Metaprogramowanie - przykład}
-  \input{metaprogramming1}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Metaprogramowanie - przykład, c.d.}
-  \input{metaprogramming2}
-  \note{To nie jest specjalna składnia - to zwykłe wywołanie metody
-    zadeklarowanej w klasie Module}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Metaprogramowanie - przykład, c.d.}
+  \frametitle{Metaprogramowanie - problem}
   \input{metaprogramming3}
   \note{Wiele osób w dalszym ciągu traci czas na pisanie getterów i
     setterów w np. Javie}
   \note{nie musimy pisać funkcji - attr_accessor, attr_reader,
     attr_writer są w bibliotece standardowej. Zostały napisane w C}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Metaprogramowanie - rozwiązanie}
+  \input{metaprogramming1}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Metaprogramowanie - rozwiązanie, c.d.}
+  \input{metaprogramming2}
+  \note{To nie jest specjalna składnia - to zwykłe wywołanie metody
+    zadeklarowanej w klasie Module}
 \end{frame}
 
 \subsection{Użycie method\_missing}
@@ -239,6 +243,7 @@
     ten efekt w tradycyjny sposób}
 \end{frame}
 
+\subsection{Ruby - Podsumowanie}
 \begin{frame}
   \frametitle{Podsumowanie}
   \begin{itemize}
@@ -637,6 +642,7 @@ $ rake db:migrate
   \item instant-rails
   \item github.com
   \item opensourcerails.com
+  \item railscasts.com
   \item heroku.com
   \end{itemize}
 \end{frame}
