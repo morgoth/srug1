@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[SupermarketTeller]
+  @PYay[def] @PYaK[method_missing](method_name, @PYbe[*]args)
+    @PYay[if] method_name@PYbe[.]to_s@PYbe[.]include? @PYaW["]@PYaW[lidl]@PYaW["]
+      @PYaX[puts] @PYaW["]@PYaW[Lidl jest tani!]@PYaW["]
+    @PYay[else]
+      @PYay[raise] @PYaq[NoMethodError],
+        @PYaW["]@PYaW[undefined method `]@PYbf[#{]method_name@PYbf[}]@PYaW[' for ]@PYbf[#{]@PYaX[self]@PYbf[}]@PYaW["]
+    @PYay[end]
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}

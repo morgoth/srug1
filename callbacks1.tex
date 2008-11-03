@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[Post] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Base]
+  before_validation @PYat[:sanitize_title], @PYat[:escape_content]
+  after_destroy @PYat[:clear_category_cache]
+
+  @PYay[def] @PYaK[sanitize_title]
+    title@PYbe[.]sanitize!
+  @PYay[end]
+  @PYaf[# ...]
+@PYay[end]
+\end{Verbatim}

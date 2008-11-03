@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYag[3]@PYbe[.]times { @PYaX[print] @PYaW["]@PYaW[SRUG]@PYaW["] }
+@PYaf[# SRUGSRUGSRUG]
+
+@PYag[5]@PYbe[.]upto(@PYag[10]) { @PYbe[|]i@PYbe[|] @PYaX[print] i, @PYaW["]@PYaW[ ]@PYaW["] }
+@PYaf[# 5 6 7 8 9 10]
+
+@PYbe[@lb[]]@PYaW["]@PYaW[Żubr]@PYaW["], @PYaW["]@PYaW[Żywiec]@PYaW["], @PYaW["]@PYaW[Harnaś]@PYaW["]@PYbe[@rb[]]@PYbe[.]select @PYay[do] @PYbe[|]drink@PYbe[|]
+  drink@PYbe[.]beer?
+@PYay[end]
+@PYaf[#=> @lb[]"Żubr", "Żywiec"@rb[]]
+
+@PYaX[open] @PYaW["]@PYaW[data.txt]@PYaW["] @PYay[do] @PYbe[|]file@PYbe[|]
+  file@PYbe[.]each_line @PYay[do] @PYbe[|]line@PYbe[|]
+    @PYaq[MyParser]@PYbe[.]parse line
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}

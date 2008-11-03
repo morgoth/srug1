@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[Post] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Base]
+  belongs_to @PYat[:category]
+  has_many @PYat[:comments]
+@PYay[end]
+
+@PYay[class] @PYaN[Category] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Base]
+  has_many @PYat[:posts]
+@PYay[end]
+
+@PYay[class] @PYaN[Comment] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Base]
+  belongs_to @PYat[:post]
+@PYay[end]
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[Post] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Base]
+  validates_presence_of     @PYat[:title],
+                            @PYat[:content]
+  validates_uniqueness_of   @PYat[:title],
+                            @PYat[:scope] @PYbe[=]@PYbe[>] @PYat[:category_id]
+  validates_format_of       @PYat[:title],
+                            @PYat[:with] @PYbe[=]@PYbe[>] @PYak[/]@PYak[\]@PYak[A@lb[]]@PYak[\]@PYak[w]@PYak[\]@PYak[s@rb[]+]@PYak[\]@PYak[Z]@PYak[/]
+  validates_numericality_of @PYat[:rating],
+                            @PYat[:greater_than] @PYbe[=]@PYbe[>] @PYag[0]
+  validate                  @PYat[:niceness_of_title]
+
+  @PYay[def] @PYaK[niceness_of_title]
+    errors@PYbe[.]add @PYat[:title], @PYaW["]@PYaW[is lousy]@PYaW["] @PYay[unless] title@PYbe[.]nice?
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}

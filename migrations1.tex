@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYay[class] @PYaN[CreateStudents] @PYbe[<] @PYaq[ActiveRecord]@PYbe[::]@PYaq[Migration]
+  @PYay[def] @PYaN[self]@PYbe[.]@PYaK[up]
+    create_table @PYat[:students] @PYay[do] @PYbe[|]t@PYbe[|]
+      t@PYbe[.]string @PYat[:name]
+      t@PYbe[.]integer @PYat[:beers_count], @PYat[:null] @PYbe[=]@PYbe[>] @PYaj[false]
+      t@PYbe[.]belongs_to @PYat[:dormitory]
+      t@PYbe[.]timestamps
+    @PYay[end]
+  @PYay[end]
+
+  @PYay[def] @PYaN[self]@PYbe[.]@PYaK[down]
+    drop_table @PYat[:students]
+  @PYay[end]
+@PYay[end]
+\end{Verbatim}

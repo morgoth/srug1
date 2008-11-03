@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=@\[\]]
+@PYaq[Post]@PYbe[.]all(@PYat[:conditions] @PYbe[=]@PYbe[>] @PYbe[@lb[]]@PYaW["]@PYaW[title LIKE ? ]@PYaW["], @PYaW["]@PYaW[Rails]@PYaW["]@PYbe[@rb[]])
+@PYaf[# SELECT * FROM "posts" WHERE (title LIKE 'Rails')]
+
+@PYaq[Post]@PYbe[.]first(@PYat[:include] @PYbe[=]@PYbe[>] @PYbe[@lb[]]@PYat[:category], @PYat[:comments]@PYbe[@rb[]])
+@PYaf[# SELECT * FROM "posts" LIMIT 1]
+@PYaf[# SELECT * FROM "categories" WHERE ("categories"."id" IN (1))]
+@PYaf[# SELECT "comments".* FROM "comments" WHERE ("comments".post_id IN (1))]
+
+@PYaq[User]@PYbe[.]first(@PYat[:conditions] @PYbe[=]@PYbe[>] { @PYat[:login] @PYbe[=]@PYbe[>] @PYaW["]@PYaW[srug]@PYaW["], @PYat[:password] @PYbe[=]@PYbe[>] @PYaW["]@PYaW[secret]@PYaW["] })
+@PYaf[# SELECT * FROM "users" WHERE]
+@PYaf[#   ("users"."password" = 'secret' AND "users"."login" = 'srug')]
+
+@PYaq[User]@PYbe[.]first(@PYat[:conditions] @PYbe[=]@PYbe[>] { @PYat[:login] @PYbe[=]@PYbe[>] @PYbe[@lb[]]@PYaW["]@PYaW[srug]@PYaW["], @PYaW["]@PYaW[Srug]@PYaW["], @PYaW["]@PYaW[SRUG]@PYaW["]@PYbe[@rb[]]})
+@PYaf[# SELECT * FROM "users" WHERE]
+@PYaf[#   ("users"."login" IN ('srug','Srug','SRUG')) LIMIT 1]
+\end{Verbatim}
