@@ -66,30 +66,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Cechy}
-  \begin{itemize}
-  \item dziedziczenie jednobazowe
-  \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
-    włączyć gotową implementację zbioru metod do danej klasy
-    (\emph{mixin})
-    \note[item]{Moduły pełnią też rolę przestrzeni nazw}
-  \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
-    np. w Javie
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Cechy, c.d.}
-  \begin{itemize}
-  \item bogata biblioteka standardowa
-  \item garbage collector
-  \item przeciążanie operatorów
-  \item liczby całkowite o dowolnych rozmiarach
-  \item wyrażenia regularne wbudowane w składnię
-  \end{itemize}
-\end{frame}
-
 \subsection{Ruby - implementacje}
 \begin{frame}
   \frametitle{Ruby - implementacje}
@@ -130,8 +106,24 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Podstawowe elementy - tablice i hasze}
+  \frametitle{Tablice i hasze}
   \input{ruby1}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Dziedziczenie}
+  \begin{itemize}
+  \item dziedziczenie jednobazowe
+  \item moduły - rodzaj dziedziczenia wielobazowego pozwalający
+    włączyć gotową implementację zbioru metod do danej klasy
+    (\emph{mixin})
+    \note[item]{Moduły pełnią też rolę przestrzeni nazw}
+  \item dziedziczenia używa się znacznie oszczędniej i rzadziej niż
+    np. w Javie
+  \end{itemize}
+  \begin{block}{Przykład}
+    \input{inheritance1}
+  \end{block}
 \end{frame}
 
 \begin{frame}

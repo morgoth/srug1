@@ -4,8 +4,8 @@
 
 exit if restaurants.include? "wiedeński"
 
-raise ArgumentError unless argument.kind_of? String
+[5, 20, 35, 10, 10, 30].sort.last
 
-[5,20,5,10,10,30].sort.last
+raise ArgumentError unless argument.kind_of? String
 
 return list.uniq if list.respond_to? "uniq"
